@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-class DocViewController: UIViewController,UIWebViewDelegate, UIGestureRecognizerDelegate, UITextFieldDelegate, UIScrollViewDelegate {
+class DocViewController: UIViewController,UIWebViewDelegate, UIGestureRecognizerDelegate, UITextFieldDelegate, UIScrollViewDelegate, UIAlertViewDelegate {
     
     @IBOutlet weak var middleView: UIView!
     @IBOutlet weak var btnLeftBottom: UIButton!
@@ -104,16 +104,16 @@ class DocViewController: UIViewController,UIWebViewDelegate, UIGestureRecognizer
     */
     func skipToPage(num: Int){
 //        var strPath = NSHomeDirectory().stringByAppendingPathComponent("Documents/\(fileIDInfo!).pdf")
-        var totalPages = self.initfile()
+//        var totalPages = self.initfile()
         
         var totalPDFheight = docView.scrollView.contentSize.height
         
-        var horizontalPaddingBetweenPages = 10 * (totalPages + 1)
+        var horizontalPaddingBetweenPages = 10 * (totalPage + 1)
         var temp = totalPDFheight - CGFloat(horizontalPaddingBetweenPages)
-        var pageHeight = CGFloat(temp / CGFloat(totalPages))
+        var pageHeight = CGFloat(temp / CGFloat(totalPage))
         
         var specificPageNo = num
-        if specificPageNo <= totalPages{
+        if specificPageNo <= totalPage{
             
             var p = specificPageNo - 1
             var value1 = CGFloat(10 * p)
@@ -190,9 +190,20 @@ class DocViewController: UIViewController,UIWebViewDelegate, UIGestureRecognizer
         var path: CFString = CFStringCreateWithCString(nil, dataPathFromApp, CFStringEncoding(CFStringBuiltInEncodings.UTF8.rawValue))
         var url: CFURLRef = CFURLCreateWithFileSystemPath(nil , path, CFURLPathStyle.CFURLPOSIXPathStyle, 0)
        
-        var document: CGPDFDocumentRef = CGPDFDocumentCreateWithURL(url)
-        var totalPages = CGPDFDocumentGetNumberOfPages(document)
-        return totalPages
+        
+        if let document = CGPDFDocumentCreateWithURL(url){
+            var totalPages = CGPDFDocumentGetNumberOfPages(document)
+            return totalPages
+        }else{
+            self.docView.hidden = true
+            self.topView.hidden = true
+            UIAlertView(title: "提示", message: "当前服务器中不存在该文件", delegate: self, cancelButtonTitle: "确定").show()
+            return 0
+        }
+        
+//        var document: CGPDFDocumentRef = CGPDFDocumentCreateWithURL(url)
+//        var totalPages = CGPDFDocumentGetNumberOfPages(document)
+//        return totalPages
     }
     
     func scrollViewDidScroll(scrollView: UIScrollView){

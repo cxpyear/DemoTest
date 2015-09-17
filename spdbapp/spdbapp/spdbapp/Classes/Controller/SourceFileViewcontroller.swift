@@ -151,14 +151,15 @@ class SourceFileViewcontroller: UIViewController, UITableViewDelegate, UITableVi
 //        }
 //        return cell
         if DownLoadManager.isFileDownload(sourceFile.id){
-            cell.downloadProgressBar.hidden = true;
-            cell.lblShowDownloadPercent.hidden = true
-            cell.imgShowFileStatue.image = UIImage(named: "File-50")
+            
+                cell.downloadProgressBar.hidden = true;
+                cell.lblShowDownloadPercent.hidden = true
+                cell.imgShowFileStatue.image = UIImage(named: "File-50")
         }else{
         
         for var i = 0; i < downloadlist.count  ; i++ {
             if sourceFile.id == downloadlist[i].fileid {
-                if !DownLoadManager.isSamePDFFile(sourceFile.id){
+                if !DownLoadManager.isSamePDFFile(sourceFile.id) && NSFileManager.defaultManager().isExecutableFileAtPath(NSHomeDirectory().stringByAppendingString("Documents/\(sourceIdInfo).pdf")){
                     cell.lblShowDownloadPercent.text = "\(Int(Float(downloadlist[i].filebar) * 100))%"
                     cell.downloadProgressBar.progress = Float(downloadlist[i].filebar)
 

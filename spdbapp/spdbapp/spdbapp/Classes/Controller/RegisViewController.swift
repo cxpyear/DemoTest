@@ -10,6 +10,7 @@ import UIKit
 import Alamofire
 import SnapKit
 
+
 var bNeedRefresh = true
 
 var MyDeviceId = "MyDeviceId"
@@ -30,6 +31,7 @@ class RegisViewController: UIViewController, UIAlertViewDelegate, UITextFieldDel
     @IBOutlet weak var lblCurrentUserName: UILabel!
     @IBOutlet weak var userView: UIView!
     @IBOutlet weak var btnHelp: UIButton!
+    @IBOutlet weak var btnShare: UIButton!
 //    @IBOutlet weak var btnHelp: UIButton!
     var kbHeight: CGFloat!
     
@@ -74,6 +76,13 @@ class RegisViewController: UIViewController, UIAlertViewDelegate, UITextFieldDel
 
         
         btnHelp.addTarget(self, action: "showHelpView", forControlEvents: UIControlEvents.TouchUpInside)
+        
+        btnShare.addTarget(self, action: "shareApp", forControlEvents: UIControlEvents.TouchUpInside)
+    }
+    
+    func shareApp(){
+        var shareUrl = "http://www.shgbit.com/spadapp"
+        UIApplication.sharedApplication().openURL(NSURL(string: shareUrl)!)
     }
     
     func showHelpView(){

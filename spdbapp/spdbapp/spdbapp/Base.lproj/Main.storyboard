@@ -394,6 +394,14 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fcg-Kk-JjR">
+                                        <rect key="frame" x="638" y="75" width="100" height="40"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="分   享">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.1333333333" green="0.2470588235" blue="0.45882352939999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -469,6 +477,7 @@
                         <outlet property="btnHelp" destination="hh7-Zx-i17" id="SF4-b4-3Jn"/>
                         <outlet property="btnOK" destination="65O-K2-evA" id="bTP-hu-zse"/>
                         <outlet property="btnOffLine" destination="HLo-2w-ffL" id="ydj-vH-zfN"/>
+                        <outlet property="btnShare" destination="fcg-Kk-JjR" id="50S-z3-gqA"/>
                         <outlet property="lblCurrentUserName" destination="fcp-lL-v77" id="kux-V2-yfR"/>
                         <outlet property="loading" destination="J3i-cO-yN8" id="Vkb-Bt-AGJ"/>
                         <outlet property="middleView" destination="1kA-Yi-hvc" id="Mey-ua-PAU"/>

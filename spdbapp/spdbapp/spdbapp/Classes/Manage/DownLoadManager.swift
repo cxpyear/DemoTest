@@ -121,9 +121,10 @@ class DownLoadManager: NSObject {
             
             //http://192.168.2.101:10086/gbtouch/meetings/e9f63596-ddac-4d19-996b-cd592d1b77af/570de66d-e17c-40e9-9daa-60e3e3b56894.pdf
             var filepath = server.downloadFileUrl + "gbtouch/meetings/\(meetingid)/\(fileid).pdf"
-            println("filepath  = \(filepath)")
             var getPDFURL = NSURL(string: filepath)
             let destination = Alamofire.Request.suggestedDownloadDestination(directory: .DocumentDirectory, domain: .UserDomainMask)
+            println("filepath  = \(filepath)")
+            
             
             //判断../Documents是否存在当前filename为名的文件，如果存在，则返回；如不存在，则下载文件
             var b = self.isSamePDFFile(fileid)
@@ -247,6 +248,12 @@ class DownLoadManager: NSObject {
         }else{
             return false
         }
+        
+//        if manager.isExecutableFileAtPath(filepath){
+//            return true
+//        }else{
+//            return false
+//        }
     }
     
     
