@@ -14,14 +14,11 @@ class SourceFileViewcontroller: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var sourceTableview: UITableView!
     @IBOutlet weak var lblShowMeetingName: UILabel!
     @IBOutlet weak var lblShowAgendaName: UILabel!
+    @IBOutlet weak var loading: UIActivityIndicatorView!
     
     var agendaNameInfo = String()
     var agendaIndex = 0
 
-//    var gbSource = GBSource()
-//    var gbAgenda = GBAgenda()
-//    var gbSourceName = [String]()
-    
     var gbSourceInfo = [GBSource]()
     
     var sourceNameInfo = String()
@@ -57,19 +54,36 @@ class SourceFileViewcontroller: UIViewController, UITableViewDelegate, UITableVi
     }
     
     override func viewWillAppear(animated: Bool) {
+        if !gbSourceInfo.isEmpty{
+            self.loading.stopAnimating()
+        }
+        if appManager.current.isEqual(nil) == true{
+            self.loading.stopAnimating()
+        }
+        
         if bNeedRefresh == true{
             NSNotificationCenter.defaultCenter().addObserver(self, selector: "getCurrentChange:", name: CurrentDidChangeNotification, object: nil)
         }else{
             self.gbSourceInfo = appManager.current.agendas[agendaIndex].source
             self.lblShowMeetingName.text = appManager.current.name
             self.sourceTableview.reloadData()
+            self.loading.stopAnimating()
         }
     }
     
     func getCurrentChange(notification: NSNotification){
-        self.gbSourceInfo = appManager.current.agendas[agendaIndex].source
-        self.lblShowMeetingName.text = appManager.current.name
-        self.sourceTableview.reloadData()
+        if appManager.current.id.isEmpty == false{
+            self.gbSourceInfo = appManager.current.agendas[agendaIndex].source
+            self.lblShowMeetingName.text = appManager.current.name
+            self.sourceTableview.reloadData()
+            
+            self.loading.stopAnimating()
+        }
+        //只有当前会议不为空时才下载
+//        if appManager.current.id.isEmpty == false{
+//            DownLoadManager.isStart(true)
+//        }
+
         
     }
     
@@ -121,11 +135,26 @@ class SourceFileViewcontroller: UIViewController, UITableViewDelegate, UITableVi
         cell.lblShowSourceFileName.text = sourceFile.name.stringByDeletingPathExtension
 //        println("downloadlist.count = \(downloadlist.count)")
         
+//        for var i = 0; i < downloadlist.count  ; i++ {
+//            if cell.lblShowSourceFileName.text  == downloadlist[i].filename.stringByDeletingPathExtension {
+//                if DownLoadManager.isSamePDFFile("\(cell.lblShowSourceFileName.text!).pdf"){
+//                    //                    cell.downloadProgressBar.progress = 1
+//                    cell.downloadProgressBar.hidden = true;
+//                    cell.lblShowDownloadPercent.hidden = true
+//                    cell.imgShowFileStatue.image = UIImage(named: "File-50")
+//                }else{
+//                    cell.lblShowDownloadPercent.text = "\(Int(Float(downloadlist[i].filebar) * 100))%"
+//                    cell.downloadProgressBar.progress = Float(downloadlist[i].filebar)
+//                    
+//                }
+//            }
+//        }
+//        return cell
         if DownLoadManager.isFileDownload(sourceFile.id){
             cell.downloadProgressBar.hidden = true;
             cell.lblShowDownloadPercent.hidden = true
             cell.imgShowFileStatue.image = UIImage(named: "File-50")
-        }
+        }else{
         
         for var i = 0; i < downloadlist.count  ; i++ {
             if sourceFile.id == downloadlist[i].fileid {
@@ -133,8 +162,14 @@ class SourceFileViewcontroller: UIViewController, UITableViewDelegate, UITableVi
                     cell.lblShowDownloadPercent.text = "\(Int(Float(downloadlist[i].filebar) * 100))%"
                     cell.downloadProgressBar.progress = Float(downloadlist[i].filebar)
 
+                }else{
+                    cell.downloadProgressBar.hidden = true;
+                    cell.lblShowDownloadPercent.hidden = true
+                    cell.imgShowFileStatue.image = UIImage(named: "File-50")
                 }
             }
+        }
+            
         }
         return cell
     }

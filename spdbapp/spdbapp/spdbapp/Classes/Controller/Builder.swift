@@ -25,18 +25,17 @@ class Builder: NSObject {
         var jsonLocal = filemanager.contentsAtPath(localJSONPath)
         var result: AnyObject = NSJSONSerialization.JSONObjectWithData(jsonLocal!, options: NSJSONReadingOptions.AllowFragments, error: nil)!
         println("localcreatemeeting json ======local====== \(result)")
+        
         var json = JSON(result)
         self.getMeetingInfo(json)
         
-//        appManager.current = current
         return current
-        
     }
     
     
     //Create Meeting offline
     func LocalCreateMeeting() -> GBMeeting {
-        
+        println("bneedrefresh = \(bNeedRefresh)")
         current.sources.removeAll(keepCapacity: false)
         current.agendas.removeAll(keepCapacity: false)
         
@@ -51,7 +50,7 @@ class Builder: NSObject {
             if(data != nil){
                 var result: AnyObject = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments, error: nil)!
                 
-                println("localcreatemeeting json ======net====== \(result)")
+//                println("localcreatemeeting json ======net====== \(result)")
                 var json = JSON(result)
                 self.getMeetingInfo(json)
             }            
@@ -70,19 +69,19 @@ class Builder: NSObject {
     
     
     func getMeetingInfo(json: JSON) -> GBMeeting{
+        
+       
+        
         current.id = json["id"].stringValue
         current.name = json["name"].stringValue
         
-        
         println("current meetinginfo = \(current.name)")
-        println("appManager.appGBUser.type = \(appManager.appGBUser.type)")
         
         if let sources = json["source"].array{
             var count = sources.count
             for var i = 0 ; i < count ; i++ {
                 var source = GBSource()
                 var sourceRowValue = sources[i]
-                
                 
                 source.id = sourceRowValue["id"].stringValue
                 source.name = sourceRowValue["name"].stringValue
@@ -94,35 +93,26 @@ class Builder: NSObject {
                 source.link = sourceRowValue["link"].stringValue
                 source.aidlink = sourceRowValue["aid-link"].stringValue
                 
+                                
                 var type : String?
                 var role : String?
-                
-                
                 if bNeedRefresh == true{
                     type = appManager.appGBUser.type
                     role = appManager.appGBUser.role
                 }else{
-                
                     var userInfoPath = NSHomeDirectory().stringByAppendingPathComponent("Documents/UserInfo.txt")
-                    var userinfo = NSMutableDictionary(contentsOfFile: userInfoPath)
-                    type = userinfo?.objectForKey("type")?.string
-                    role = userinfo?.objectForKey("role")?.string
+                    var userinfo = NSDictionary(contentsOfFile: userInfoPath)
+                    type = userinfo?.objectForKey("type") as? String
+                    role = userinfo?.objectForKey("role") as? String
                 }
-                println("filename = \(source.name)")
-                println("appmanager.type = \(type!)===appmanager.role = \(role!)")
-                println("source.meetingtype = \(source.meetingtype)===source.memberrole = \(source.memberrole)")
                 
+                println("source.type = \(source.meetingtype)===== source.role = \(source.memberrole)")
+                println("type = \(type)====role = \(role)")
                 
                 //当满足人员类型等于会议类型  &&  人员角色＝＝文件分配权限／全员时，将该文件加载入对应的议程中
-                var b: Bool = (source.memberrole == "全员")
-                println("quanyuan info = \(b)")
                 if ((type == source.meetingtype) && ((role == source.memberrole)  || (source.memberrole == "全员"))){
                     current.sources.append(source)
                 }
-            }
-            
-            for var i = 0 ; i < current.sources.count ; i++ {
-                println("current.source.count\(i) = \(current.sources[i].name)")
             }
         }
         

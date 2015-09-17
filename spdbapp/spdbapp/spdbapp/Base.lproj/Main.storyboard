@@ -36,6 +36,7 @@
                                             <constraint firstAttribute="height" constant="86" id="nmh-bc-viC"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="24"/>
+                                        <color key="textColor" red="0.011764705882352941" green="0.10980392156862745" blue="0.49411764705882355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="highlightedColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </label>
                                 </subviews>
@@ -71,7 +72,7 @@
                                     <outlet property="delegate" destination="und-vf-3cF" id="fSh-tU-evV"/>
                                 </connections>
                             </tableView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Da5-MW-upE">
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Da5-MW-upE" userLabel="loading">
                                 <rect key="frame" x="365.5" y="493.5" width="37" height="37"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="37" id="9qW-dB-C92"/>
@@ -182,6 +183,7 @@
                                             <constraint firstAttribute="height" constant="80" id="sZU-a6-hjr"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="24"/>
+                                        <color key="textColor" red="0.01176470588" green="0.10980392160000001" blue="0.4941176471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -217,16 +219,25 @@
                                     <outlet property="delegate" destination="yjk-Ba-yZ0" id="udb-d5-xjE"/>
                                 </connections>
                             </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="o9m-rb-yYp" userLabel="loading">
+                                <rect key="frame" x="365.5" y="493.5" width="37" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37" id="AzL-Ln-uDM"/>
+                                    <constraint firstAttribute="width" constant="37" id="lAg-Dp-C0y"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="kV0-At-ntB" firstAttribute="top" secondItem="gJi-mc-w1j" secondAttribute="bottom" id="6P2-aC-WVk"/>
+                            <constraint firstAttribute="centerX" secondItem="o9m-rb-yYp" secondAttribute="centerX" id="6la-Xv-HbL"/>
                             <constraint firstAttribute="bottom" secondItem="kV0-At-ntB" secondAttribute="bottom" id="DKi-1c-JgE"/>
                             <constraint firstItem="kV0-At-ntB" firstAttribute="leading" secondItem="HUR-B5-Cq1" secondAttribute="leading" id="Hsf-SC-ibs"/>
                             <constraint firstAttribute="trailing" secondItem="gJi-mc-w1j" secondAttribute="trailing" id="L23-C4-OES"/>
                             <constraint firstAttribute="trailing" secondItem="kV0-At-ntB" secondAttribute="trailing" id="LAW-Q4-vVX"/>
                             <constraint firstItem="gJi-mc-w1j" firstAttribute="top" secondItem="5De-rK-YqU" secondAttribute="bottom" id="S4V-4h-Uge"/>
                             <constraint firstItem="5De-rK-YqU" firstAttribute="leading" secondItem="HUR-B5-Cq1" secondAttribute="leading" id="d6l-Sl-8p0"/>
+                            <constraint firstAttribute="centerY" secondItem="o9m-rb-yYp" secondAttribute="centerY" id="dEh-1x-ygA"/>
                             <constraint firstItem="gJi-mc-w1j" firstAttribute="leading" secondItem="HUR-B5-Cq1" secondAttribute="leading" id="hYo-9w-ixT"/>
                             <constraint firstAttribute="trailing" secondItem="5De-rK-YqU" secondAttribute="trailing" id="kLj-Iq-hYq"/>
                             <constraint firstItem="gJi-mc-w1j" firstAttribute="top" secondItem="5De-rK-YqU" secondAttribute="bottom" id="roZ-A1-6mW"/>
@@ -243,6 +254,7 @@
                     <connections>
                         <outlet property="lblShowAgendaName" destination="gJi-mc-w1j" id="Ekc-Gr-7jo"/>
                         <outlet property="lblShowMeetingName" destination="7K5-hx-C65" id="LQE-gl-mqU"/>
+                        <outlet property="loading" destination="o9m-rb-yYp" id="CMa-FJ-C6k"/>
                         <outlet property="sourceTableview" destination="kV0-At-ntB" id="koa-QS-j9k"/>
                         <segue destination="Pa6-Ix-LoW" kind="presentation" identifier="sourceToDoc" id="mSA-Fn-EyL"/>
                     </connections>
@@ -266,13 +278,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u49-0s-A6h" userLabel="viewparent">
                                 <rect key="frame" x="0.0" y="150" width="768" height="874"/>
                                 <subviews>
-                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="J3i-cO-yN8" userLabel="loading">
-                                        <rect key="frame" x="365" y="419" width="37" height="37"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="37" id="HII-k5-UZg"/>
-                                            <constraint firstAttribute="width" constant="37" id="o5x-fH-DNe"/>
-                                        </constraints>
-                                    </activityIndicatorView>
                                     <view contentMode="top" translatesAutoresizingMaskIntoConstraints="NO" id="1kA-Yi-hvc" userLabel="viewmiddle">
                                         <rect key="frame" x="0.0" y="387" width="768" height="100"/>
                                         <subviews>
@@ -316,10 +321,17 @@
                                             <constraint firstAttribute="width" constant="768" id="aem-Za-Hp8"/>
                                         </constraints>
                                     </view>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="J3i-cO-yN8" userLabel="loading">
+                                        <rect key="frame" x="365" y="419" width="37" height="37"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="37" id="HII-k5-UZg"/>
+                                            <constraint firstAttribute="width" constant="37" id="o5x-fH-DNe"/>
+                                        </constraints>
+                                    </activityIndicatorView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bbM-8x-E5l" userLabel="viewInput">
                                         <rect key="frame" x="0.0" y="287" width="768" height="100"/>
                                         <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="cc" borderStyle="roundedRect" placeholder="用户名" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="rRN-ke-A0t">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="shgbit" borderStyle="roundedRect" placeholder="用户名" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="rRN-ke-A0t">
                                                 <rect key="frame" x="246" y="0.0" width="275" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="275" id="QVx-2S-MBS"/>
@@ -370,18 +382,32 @@
                                             <constraint firstAttribute="width" constant="768" id="wDQ-Sg-y89"/>
                                         </constraints>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hh7-Zx-i17">
+                                        <rect key="frame" x="638" y="20" width="100" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="gQT-fC-2sU"/>
+                                            <constraint firstAttribute="height" constant="40" id="sap-yd-hrc"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="帮  助">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.1333333333" green="0.2470588235" blue="0.45882352939999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="centerY" secondItem="J3i-cO-yN8" secondAttribute="centerY" id="1nU-EW-mKG"/>
                                     <constraint firstItem="4vC-B9-87U" firstAttribute="leading" secondItem="u49-0s-A6h" secondAttribute="leading" id="AGt-bX-fB7"/>
                                     <constraint firstAttribute="centerX" secondItem="J3i-cO-yN8" secondAttribute="centerX" id="DNY-hx-HHj"/>
+                                    <constraint firstItem="hh7-Zx-i17" firstAttribute="top" secondItem="u49-0s-A6h" secondAttribute="top" constant="20" id="EbH-K0-SXW"/>
                                     <constraint firstAttribute="centerX" secondItem="1kA-Yi-hvc" secondAttribute="centerX" id="Obv-gL-iUh"/>
                                     <constraint firstItem="1kA-Yi-hvc" firstAttribute="top" secondItem="4vC-B9-87U" secondAttribute="bottom" id="RgP-Gf-qRo"/>
                                     <constraint firstAttribute="centerY" secondItem="1kA-Yi-hvc" secondAttribute="centerY" id="b0i-Sx-Imr"/>
                                     <constraint firstAttribute="centerX" secondItem="bbM-8x-E5l" secondAttribute="centerX" id="cgp-BJ-Z4K"/>
                                     <constraint firstItem="bbM-8x-E5l" firstAttribute="leading" secondItem="u49-0s-A6h" secondAttribute="leading" id="hQH-T0-zqb"/>
                                     <constraint firstAttribute="trailing" secondItem="4vC-B9-87U" secondAttribute="trailing" id="jMW-3b-j8O"/>
+                                    <constraint firstAttribute="trailing" secondItem="hh7-Zx-i17" secondAttribute="trailing" constant="30" id="lcu-48-sn1"/>
                                     <constraint firstItem="1kA-Yi-hvc" firstAttribute="top" secondItem="bbM-8x-E5l" secondAttribute="bottom" id="oCe-Fi-ffO"/>
                                     <constraint firstAttribute="height" constant="874" id="rFA-tF-QJ9"/>
                                     <constraint firstAttribute="trailing" secondItem="bbM-8x-E5l" secondAttribute="trailing" id="uBt-Pq-u8n"/>
@@ -440,6 +466,7 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
                     <connections>
+                        <outlet property="btnHelp" destination="hh7-Zx-i17" id="SF4-b4-3Jn"/>
                         <outlet property="btnOK" destination="65O-K2-evA" id="bTP-hu-zse"/>
                         <outlet property="btnOffLine" destination="HLo-2w-ffL" id="ydj-vH-zfN"/>
                         <outlet property="lblCurrentUserName" destination="fcp-lL-v77" id="kux-V2-yfR"/>

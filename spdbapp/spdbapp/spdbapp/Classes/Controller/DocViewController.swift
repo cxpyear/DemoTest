@@ -34,14 +34,14 @@ class DocViewController: UIViewController,UIWebViewDelegate, UIGestureRecognizer
 
     var totalPage = 0
     var currentPage = 0
-    var docPath = String()
+//    var docPath = String()
     
     @IBOutlet weak var docView: UIWebView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        docPath = NSHomeDirectory().stringByAppendingPathComponent("Documents/\(fileIDInfo!).pdf")
+//        docPath = NSHomeDirectory().stringByAppendingPathComponent("Documents/\(fileIDInfo!).pdf")
         loadLocalPDFFile()
         totalPage = initfile()
         
@@ -186,29 +186,16 @@ class DocViewController: UIViewController,UIWebViewDelegate, UIGestureRecognizer
     :returns: 当前pdf文档总页数
     */
     func initfile() -> Int {
-//        var dataPathFromApp = NSHomeDirectory().stringByAppendingPathComponent("Documents/\(fileIDInfo!).pdf")
-        var path: CFString = CFStringCreateWithCString(nil, docPath, CFStringEncoding(CFStringBuiltInEncodings.UTF8.rawValue))
+        var dataPathFromApp = NSHomeDirectory().stringByAppendingPathComponent("Documents/\(fileIDInfo!).pdf")
+        var path: CFString = CFStringCreateWithCString(nil, dataPathFromApp, CFStringEncoding(CFStringBuiltInEncodings.UTF8.rawValue))
         var url: CFURLRef = CFURLCreateWithFileSystemPath(nil , path, CFURLPathStyle.CFURLPOSIXPathStyle, 0)
+       
         var document: CGPDFDocumentRef = CGPDFDocumentCreateWithURL(url)
         var totalPages = CGPDFDocumentGetNumberOfPages(document)
         return totalPages
     }
     
     func scrollViewDidScroll(scrollView: UIScrollView){
-//        var totalPages = self.initfile()
-//        
-//        var totalPDFheight = docView.scrollView.contentSize.height
-//        
-//        var horizontalPaddingBetweenPages = 10 * (totalPages + 1)
-//        var temp = totalPDFheight - CGFloat(horizontalPaddingBetweenPages)
-//        var pageHeight = CGFloat(temp / CGFloat(totalPages))
-        
-        
-//        var page = (scrollView.contentOffset.y - 20 ) / pageHeight
-//        println("page========\(scrollView.contentOffset.y)")
-//        var p = Int(page)
-        
-        
         println("offset.y = \((scrollView.contentOffset.y ))")
         
         var page = (scrollView.contentOffset.y ) / (self.view.frame.height)
@@ -243,8 +230,8 @@ class DocViewController: UIViewController,UIWebViewDelegate, UIGestureRecognizer
     加载当前pdf文档
     */
     func loadLocalPDFFile(){
-//        var filePath: String = NSHomeDirectory().stringByAppendingPathComponent("Documents/\(self.fileIDInfo!).pdf")
-        var urlString = NSURL(fileURLWithPath: "\(docPath)")
+        var filePath: String = NSHomeDirectory().stringByAppendingPathComponent("Documents/\(self.fileIDInfo!).pdf")
+        var urlString = NSURL(fileURLWithPath: "\(filePath)")
         var request = NSURLRequest(URL: urlString!)
         self.docView.loadRequest(request)
 //        println("path = \(filePath)")

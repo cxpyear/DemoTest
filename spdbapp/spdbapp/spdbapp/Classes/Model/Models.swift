@@ -26,28 +26,12 @@ class GBBase: NSObject {
 }
 
 class GBUser: NSObject {
+    var id = String()
     var username = String()
     var name = String()
     var password = String()
     var type = String()
     var role = String()
-    
-//    required init(coder aDecoder: NSCoder) {
-//        username = aDecoder.decodeObjectForKey(username) as! String
-//        name = aDecoder.decodeObjectForKey(name) as! String
-//        type = aDecoder.decodeObjectForKey(type) as! String
-//        role = aDecoder.decodeObjectForKey(role) as! String
-//        password = aDecoder.decodeObjectForKey(password) as! String
-//        
-//    }
-//    
-//    func encodeWithCoder(aCoder: NSCoder) {
-//        aCoder.encodeObject(username, forKey: username)
-//        aCoder.encodeObject(name, forKey: name)
-//        aCoder.encodeObject(password, forKey: password)
-//        aCoder.encodeObject(type, forKey: type)
-//        aCoder.encodeObject(role, forKey: role)
-//    }
 }
 
 class GBServer:NSObject{
@@ -61,7 +45,6 @@ class GBServer:NSObject{
 
 class GBBox: GBBase {
     var macId : String = "11-22-33-44-55-66"
-//    var type : GBMeetingType?
     var type : String = ""
     var name: String = ""
 
@@ -71,10 +54,8 @@ class GBBox: GBBase {
     override init(){
         super.init()
         type = ""
-            //GBMeetingType.ALL
         macId = GBNetwork.getMacId()
         name = ""
-
         connect = false
     }
 }
@@ -82,12 +63,12 @@ class GBBox: GBBase {
 
 class GBMeeting: GBBase {
     var name: String = ""
-//    var type : GBMeetingType = .ALL
     var startTime: NSDate = NSDate()
     var status: Bool?
     var id: String = ""
     var agendas = [GBAgenda]()
     var sources = [GBSource]()
+    var member = [String]()
 }
 
 class GBSource : NSObject {
@@ -98,7 +79,6 @@ class GBSource : NSObject {
     var sourpublic: String
     var link: String
     var aidlink: String
-//    var local: String
     var meetingtype: String
     var memberrole: String
 
@@ -110,12 +90,9 @@ class GBSource : NSObject {
         sourpublic = ""
         link = ""
         aidlink = ""
-//        local = ""
         meetingtype = ""
         memberrole = ""
     }
-
-    
 }
 
 
@@ -127,23 +104,6 @@ class GBAgenda: NSObject {
     var starttime: String = ""
     var endtime: String = ""
     var reporter: String = ""
-//    var sourceList = [GBSource]()
-    
-    //新增source
-    
 }
 
-
-//class GBDoc: GBBase {
-//    var id: String = ""
-//    var index: Int = 0
-//    var count: Int = 0
-//    var type: GBMeetingType = .ALL
-//    var status: Bool?
-//    var pdfPath: String = ""
-//    var size: Int = 0
-//    var createAt: String = ""
-//    var path: String = ""
-//    var name: String = ""
-//}
 

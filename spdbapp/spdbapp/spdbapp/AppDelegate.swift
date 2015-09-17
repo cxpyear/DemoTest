@@ -8,9 +8,11 @@
 
 import UIKit
 
-//var server = Server()
-//var builder = Builder()
+var server = Server()
+var builder = Builder()
 var appManager = AppManager()
+
+var appDelegate = AppDelegate()
 
 
 @UIApplicationMain
@@ -18,8 +20,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
+    var initserver = Server()
+//    var builder = Builder()
+//    
+//    func loadData(){
+//        println("======loaddata")
+//    }
+    
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        server = initserver
+        
 //        var key = "CFBundleVersion"
 //        //获取当前运行版本号
 //        var currentVersion = NSBundle.mainBundle().objectForInfoDictionaryKey(key) as! NSString
@@ -29,21 +40,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        var lastVersion: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey(key)
         
 //        println("lastVersion = \(lastVersion)")
-        
-        
-//        var idKey = "CurrentDeviceId"
-//        var currentDeviceId: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey(idKey)
-//        //如果当前id为空
-//        if currentDeviceId == nil {
-//
-////            appManager.createBox()
-//            
-//            
-//            var storyBorad = UIStoryboard(name: "Main", bundle: nil)
-//            var registerVC = storyBorad.instantiateViewControllerWithIdentifier("view") as! RegisViewController
-////            registerVC.bNeedPostNote = true
-//            self.window?.rootViewController = registerVC
-//        }
         
         
         // 判断如果当前版本号＝＝之前存储版本好，直接跳转到登录界面，否则跳转到展示新特性界面

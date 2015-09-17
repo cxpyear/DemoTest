@@ -39,9 +39,11 @@ class Server: NSObject {
     func getInitialIP() -> String {
         var defaults = NSUserDefaults.standardUserDefaults()
         var value = defaults.stringForKey("txtBoxURL")
-        println("url = \(value)")
+        
+//        println("url = \(value!)")
+        
         if (value?.isEmpty == nil) {
-            defaults.setObject("192.168.25.33", forKey: "txtBoxURL")
+            defaults.setObject("192.168.2.16", forKey: "txtBoxURL")
             defaults.synchronize()
             return defaults.objectForKey("txtBoxURL") as! String
         }
@@ -57,8 +59,6 @@ class Server: NSObject {
         
         
         defaults.synchronize()
-        
-        
         
         return value!
     }

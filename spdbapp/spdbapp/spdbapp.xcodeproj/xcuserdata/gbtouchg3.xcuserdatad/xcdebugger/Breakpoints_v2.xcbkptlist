@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "spdbapp/Classes/Controller/Builder.swift"
-            timestampString = "463904834.147299"
+            timestampString = "464153658.317877"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "178"
-            endingLineNumber = "178">
+            startingLineNumber = "168"
+            endingLineNumber = "168">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -111,38 +111,6 @@
             endingLineNumber = "195"
             landmarkName = "createBox()"
             landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "spdbapp.AppManager.createBox (spdbapp.AppManager)() -&gt; spdbapp.GBBox"
-                  moduleName = "spdbapp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/gbtouchg3/Desktop/SPDB0911/spdbapp/spdbapp/spdbapp/AppManager.swift"
-                  timestampString = "463908568.121359"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "195"
-                  endingLineNumber = "195"
-                  offsetFromSymbolStart = "756">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "function signature specialization &lt;Arg[6] = Dead, Arg[7] = Value Promoted from InOut, Arg[8] = Dead, Arg[9] = Value Promoted from InOut&gt; of spdbapp.AppManager.(createBox (spdbapp.AppManager) -&gt; () -&gt; spdbapp.GBBox).(closure #1)"
-                  moduleName = "spdbapp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/gbtouchg3/Desktop/SPDB0911/spdbapp/spdbapp/spdbapp/AppManager.swift"
-                  timestampString = "463908568.121494"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "196"
-                  endingLineNumber = "196"
-                  offsetFromSymbolStart = "165">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -200,22 +168,6 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "spdbapp/AppManager.swift"
-            timestampString = "463651496.073719"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
-            landmarkName = "init()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "spdbapp/AppManager.swift"
             timestampString = "463651532.055053"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
@@ -231,40 +183,8 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "spdbapp/Classes/Controller/AgendaViewController.swift"
-            timestampString = "463651506.250706"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "spdbapp/Classes/Controller/AgendaViewController.swift"
-            timestampString = "463651574.649148"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "spdbapp/Classes/Controller/Builder.swift"
-            timestampString = "463651637.006803"
+            timestampString = "464153658.317877"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "32"
@@ -295,13 +215,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "spdbapp/Classes/Controller/Builder.swift"
-            timestampString = "463903654.236455"
+            filePath = "spdbapp/Classes/Controller/RegisViewController.swift"
+            timestampString = "464153919.989459"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "109"
-            endingLineNumber = "109"
-            landmarkName = "getMeetingInfo(_:)"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
+            landmarkName = "getOffLineMeeting(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "spdbapp/Classes/Controller/SourceFileViewcontroller.swift"
+            timestampString = "463918370.875853"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "viewWillAppear(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -312,12 +248,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "spdbapp/Classes/Controller/RegisViewController.swift"
-            timestampString = "463907811.937899"
+            timestampString = "464153919.989459"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "91"
-            endingLineNumber = "91"
-            landmarkName = "goLogin()"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
+            landmarkName = "getOffLineMeeting(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -328,12 +264,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "spdbapp/Classes/Controller/RegisViewController.swift"
-            timestampString = "463907811.937899"
+            timestampString = "464153919.989459"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "306"
-            endingLineNumber = "306"
-            landmarkName = "isCurrentDeviceRegister()"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
+            landmarkName = "getOffLineMeeting(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -343,236 +279,12 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "spdbapp/Classes/Controller/RegisViewController.swift"
-            timestampString = "463907811.937899"
+            filePath = "spdbapp/AppManager.swift"
+            timestampString = "463975515.498853"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "321"
-            endingLineNumber = "321"
-            landmarkName = "isCurrentDeviceRegister()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "spdbapp/Classes/Controller/RegisViewController.swift"
-            timestampString = "463907811.937899"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "323"
-            endingLineNumber = "323"
-            landmarkName = "isCurrentDeviceRegister()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "spdbapp/Classes/Controller/RegisViewController.swift"
-            timestampString = "463907811.937899"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "326"
-            endingLineNumber = "326"
-            landmarkName = "isCurrentDeviceRegister()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "spdbapp/Classes/Controller/RegisViewController.swift"
-            timestampString = "463907811.937899"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "286"
-            endingLineNumber = "286"
-            landmarkName = "getMemberInfo(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "spdbapp/Classes/Controller/RegisViewController.swift"
-            timestampString = "463907811.937899"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "318"
-            endingLineNumber = "318"
-            landmarkName = "isCurrentDeviceRegister()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "spdbapp/Classes/Controller/AgendaViewController.swift"
-            timestampString = "463904284.115566"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "83"
-            endingLineNumber = "83"
-            landmarkName = "getCurrentChange(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "spdbapp/Classes/Controller/AgendaViewController.swift"
-            timestampString = "463904284.779404"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
-            landmarkName = "getCurrentChange(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "spdbapp/Classes/Controller/Builder.swift"
-            timestampString = "463904834.147299"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "145"
-            endingLineNumber = "145"
-            landmarkName = "getMeetingInfo(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "spdbapp/Classes/Controller/Builder.swift"
-            timestampString = "463904834.147299"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "150"
-            endingLineNumber = "150"
-            landmarkName = "getMeetingInfo(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "spdbapp/Classes/Controller/Builder.swift"
-            timestampString = "463904834.147299"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "151"
-            endingLineNumber = "151"
-            landmarkName = "getMeetingInfo(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "spdbapp/Classes/Controller/Builder.swift"
-            timestampString = "463904834.147299"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "152"
-            endingLineNumber = "152"
-            landmarkName = "getMeetingInfo(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "spdbapp/Classes/Controller/RegisViewController.swift"
-            timestampString = "463907811.937899"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "317"
-            endingLineNumber = "317"
-            landmarkName = "isCurrentDeviceRegister()"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "spdbapp.RegisViewController.isCurrentDeviceRegister (spdbapp.RegisViewController)() -&gt; ()"
-                  moduleName = "spdbapp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/gbtouchg3/Desktop/SPDB0911/spdbapp/spdbapp/spdbapp/Classes/Controller/RegisViewController.swift"
-                  timestampString = "463908568.160722"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "317"
-                  endingLineNumber = "317"
-                  offsetFromSymbolStart = "686">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "spdbapp.RegisViewController.(isCurrentDeviceRegister (spdbapp.RegisViewController) -&gt; () -&gt; ()).(closure #1)"
-                  moduleName = "spdbapp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/gbtouchg3/Desktop/SPDB0911/spdbapp/spdbapp/spdbapp/Classes/Controller/RegisViewController.swift"
-                  timestampString = "463908568.160825"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "318"
-                  endingLineNumber = "318"
-                  offsetFromSymbolStart = "48">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "spdbapp/Classes/Controller/Server.swift"
-            timestampString = "463907717.450465"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
             landmarkName = "init()"
             landmarkType = "5">
          </BreakpointContent>
@@ -583,91 +295,14 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "spdbapp/Classes/Controller/RegisViewController.swift"
-            timestampString = "463908489.71873"
+            filePath = "spdbapp/Classes/Controller/Builder.swift"
+            timestampString = "464150497.469612"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
-            landmarkName = "RegisViewController"
-            landmarkType = "3">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "spdbapp.RegisViewController.urlString.getter : Swift.String"
-                  moduleName = "spdbapp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/gbtouchg3/Desktop/SPDB0911/spdbapp/spdbapp/spdbapp/Classes/Controller/RegisViewController.swift"
-                  timestampString = "463908568.161896"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "20">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "spdbapp.RegisViewController.urlString.setter : Swift.String"
-                  moduleName = "spdbapp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/gbtouchg3/Desktop/SPDB0911/spdbapp/spdbapp/spdbapp/Classes/Controller/RegisViewController.swift"
-                  timestampString = "463908568.161991"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "39">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "spdbapp.RegisViewController.urlString.materializeForSet : Swift.String"
-                  moduleName = "spdbapp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/gbtouchg3/Desktop/SPDB0911/spdbapp/spdbapp/spdbapp/Classes/Controller/RegisViewController.swift"
-                  timestampString = "463908568.162077"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "28">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "spdbapp.RegisViewController.init (spdbapp.RegisViewController.Type)(nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;ObjectiveC.NSBundle&gt;) -&gt; spdbapp.RegisViewController"
-                  moduleName = "spdbapp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/gbtouchg3/Desktop/SPDB0911/spdbapp/spdbapp/spdbapp/Classes/Controller/RegisViewController.swift"
-                  timestampString = "463908568.162154"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "42"
-                  endingLineNumber = "42"
-                  offsetFromSymbolStart = "815">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "spdbapp.RegisViewController.init (spdbapp.RegisViewController.Type)(coder : ObjectiveC.NSCoder) -&gt; spdbapp.RegisViewController"
-                  moduleName = "spdbapp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/gbtouchg3/Desktop/SPDB0911/spdbapp/spdbapp/spdbapp/Classes/Controller/RegisViewController.swift"
-                  timestampString = "463908568.162229"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "42"
-                  endingLineNumber = "42"
-                  offsetFromSymbolStart = "714">
-               </Location>
-            </Locations>
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "loadOffLineMeeting()"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

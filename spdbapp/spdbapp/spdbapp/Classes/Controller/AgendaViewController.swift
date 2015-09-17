@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-class AgendaViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class AgendaViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIAlertViewDelegate {
 
     @IBOutlet weak var tvAgenda: UITableView!
     @IBOutlet weak var lblMeetingName: UILabel!
@@ -52,6 +52,7 @@ class AgendaViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tapGesture.cancelsTouchesInView = false
         self.view.addGestureRecognizer(tapGesture)
         
+        
         self.tvAgenda.reloadData()
     }
     
@@ -68,6 +69,7 @@ class AgendaViewController: UIViewController, UITableViewDelegate, UITableViewDa
         if bNeedRefresh == true{
             NSNotificationCenter.defaultCenter().addObserver(self, selector: "getCurrentChange:", name: CurrentDidChangeNotification, object: nil)
         }else{
+            appManager.current = builder.loadOffLineMeeting()
             self.lblMeetingName.text = appManager.current.id.isEmpty ? "暂无会议" : appManager.current.name
             self.gbAgendInfo = appManager.current.agendas
             self.tvAgenda.reloadData()
@@ -80,10 +82,21 @@ class AgendaViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.gbAgendInfo = appManager.current.agendas
         self.tvAgenda.reloadData()
         self.loading.stopAnimating()
-//        if appManager.current.id.isEmpty == false{
+        //只有当前会议不为空时才下载
+        if appManager.current.id.isEmpty == false{
             DownLoadManager.isStart(true)
-//        }
+        }
         
+        if appManager.current.id.isEmpty{
+            UIAlertView(title: "提示", message: "当前无会议,请回到登录界面开启离线会议" , delegate: self, cancelButtonTitle: "确定").show()
+        }
+        
+    }
+    
+    func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
+        var storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        var registerVC = storyBoard.instantiateViewControllerWithIdentifier("view") as! RegisViewController
+        self.presentViewController(registerVC, animated: true, completion: nil)
     }
     
     override func viewWillDisappear(animated: Bool) {

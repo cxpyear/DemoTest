@@ -7,34 +7,34 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>F58AE6B7-8D6D-4FF8-B9C6-3A6FF4B4A54B</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>spdbapp</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>2B2E8DEB63F38532D20D2AD4A8B0B3AD48D7CEDE</key>
-		<string>https://github.com/cxpyear/spdbapp.git</string>
+		<key>B5025EB34288687F7C2A471F497E84CA1B331BE0</key>
+		<string>https://github.com/cxpyear/DemoTest.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>spdbapp/spdbapp.xcodeproj/project.xcworkspace</string>
+	<string>spdbapp/spdbapp/spdbapp.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>2B2E8DEB63F38532D20D2AD4A8B0B3AD48D7CEDE</key>
-		<string>../../..</string>
+		<key>B5025EB34288687F7C2A471F497E84CA1B331BE0</key>
+		<string>../../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/cxpyear/spdbapp.git</string>
+	<string>https://github.com/cxpyear/DemoTest.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>2B2E8DEB63F38532D20D2AD4A8B0B3AD48D7CEDE</string>
+	<string>B5025EB34288687F7C2A471F497E84CA1B331BE0</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>2B2E8DEB63F38532D20D2AD4A8B0B3AD48D7CEDE</string>
+			<string>B5025EB34288687F7C2A471F497E84CA1B331BE0</string>
 			<key>IDESourceControlWCCName</key>
-			<string>spdbapp</string>
+			<string>DemoTest</string>
 		</dict>
 	</array>
 </dict>

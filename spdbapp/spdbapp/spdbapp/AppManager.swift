@@ -41,13 +41,9 @@ class AppManager : NSObject {
 
     var count = 0
     
-//    var local = GBBox()
-    
     override init(){
         super.init()
-        
-        self.initialize()
-        
+        println("========aaaaaaaaa")
         self.netConnect = false
         self.wifiConnect = false
         
@@ -63,12 +59,7 @@ class AppManager : NSObject {
             self.current = builder.loadOffLineMeeting()
         }
     }
-    
-    func initialize(){
-        println("app init====================")
-    }
-    
-    
+     
     /**
     每隔3s轮询检测当前wifi连接状态
     */
@@ -125,7 +116,6 @@ class AppManager : NSObject {
     //register current ipad id to server，返回已经注册的id并保存
     func registerCurrentId(){
         let paras = ["id":GBNetwork.getMacId()]
-//        println("id = \(paras)")
         
         var id: NSString = ""
 
