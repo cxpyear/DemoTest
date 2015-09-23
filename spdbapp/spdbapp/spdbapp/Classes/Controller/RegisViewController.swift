@@ -48,7 +48,12 @@ class RegisViewController: UIViewController, UIAlertViewDelegate, UITextFieldDel
         
         println("path = \(NSHomeDirectory())")
         
+//        println("dict = \(NSUserDefaults.standardUserDefaults().dictionaryRepresentation())")
+        
 
+        self.btnHelp.hidden = true
+        self.btnShare.hidden = true
+        
         
         txtName.delegate = self
         txtPwd.delegate = self
@@ -94,7 +99,14 @@ class RegisViewController: UIViewController, UIAlertViewDelegate, UITextFieldDel
     @IBAction func getOffLineMeeting(sender: UIButton) {
         bNeedRefresh = false
         var userInfoPath = NSHomeDirectory().stringByAppendingPathComponent("Documents/UserInfo.txt")
+        
+        var manager = NSFileManager.defaultManager()
+        if !manager.fileExistsAtPath(userInfoPath){
+            UIAlertView(title: "提示", message: "当前无离线会议", delegate: self, cancelButtonTitle: "确定").show()
+        }
+        
         var userinfo = NSDictionary(contentsOfFile: userInfoPath)
+        
         
         self.myUser.id = userinfo?.objectForKey("id") as! String
         self.myUser.username = userinfo?.objectForKey("username") as! String
@@ -200,20 +212,14 @@ class RegisViewController: UIViewController, UIAlertViewDelegate, UITextFieldDel
     }
 
     
-    func defaultsSettingsChanged() {
+    func defaultsSettingsChanged(notification: NSNotification) {
         let standardDefaults = NSUserDefaults.standardUserDefaults()
-        var filepath = NSHomeDirectory().stringByAppendingPathComponent("Documents/SettingsConfig.txt")
-        var settingsDict: NSMutableDictionary = NSMutableDictionary()
-        
+
         // 监听txtFileURL是否发生改变  默认情况下是192.168.16.142
         var value = standardDefaults.stringForKey("txtBoxURL")
-        if value == nil{
-            value = "192.168.21.48"
-        }
-        settingsDict.setObject(value!, forKey: "txtBoxURL")
-    
-        var b = settingsDict.writeToFile(filepath, atomically: true)
+        
         println("url new value ============ \(value)")
+        
         
         var isClearHistoryInfo = standardDefaults.boolForKey("clear_historyInfo")
         if isClearHistoryInfo == true{
@@ -239,17 +245,30 @@ class RegisViewController: UIViewController, UIAlertViewDelegate, UITextFieldDel
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        //判断jsondata文件或者用户信息文件是否存在，若存在，则可以开启离线会议；否则离线会议按钮隐藏
+        isOffLineMeetingExist()
+        
         self.userView.hidden = true
         isCurrentDeviceRegister()
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name:UIKeyboardWillShowNotification, object: nil);
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name:UIKeyboardWillHideNotification, object: nil);
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "defaultsSettingsChanged", name: UIApplicationWillEnterForegroundNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "defaultsSettingsChanged:", name: NSUserDefaultsDidChangeNotification, object: nil)
+        //UIApplicationWillEnterForegroundNotification
     }
     
     
    
-    
+    func isOffLineMeetingExist(){
+        var jsonFilePath = NSHomeDirectory().stringByAppendingPathComponent("Documents/jsondata.txt")
+        var userInfoFilePath = NSHomeDirectory().stringByAppendingPathComponent("Documents/UserInfo.txt")
+        var manager = NSFileManager.defaultManager()
+        if !manager.fileExistsAtPath(jsonFilePath) || !manager.fileExistsAtPath(userInfoFilePath){
+            self.btnOffLine.hidden = true
+        }else{
+            self.btnOffLine.hidden = false
+        }
+    }
 
     
     

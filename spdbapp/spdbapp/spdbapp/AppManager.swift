@@ -59,12 +59,16 @@ class AppManager : NSObject {
             self.current = builder.loadOffLineMeeting()
         }
     }
-     
+    
+//    deinit{
+//        NSNotificationCenter.defaultCenter().removeObserver(self)
+//    }
+    
     /**
     每隔3s轮询检测当前wifi连接状态
     */
     func startWifiCheckTimer(){
-        Poller().start(self, method: "checkWifiConnect:", timerInter: 3.0)
+        Poller().start(self, method: "checkWifiConnect:", timerInter: 5.0)
     }
     func checkWifiConnect(timer: NSTimer){
         if Reachability.reachabilityForInternetConnection().currentReachabilityStatus != Reachability.NetworkStatus.NotReachable{
@@ -73,6 +77,8 @@ class AppManager : NSObject {
         else{
             self.wifiConnect = false
         }
+        
+//        NSNotificationCenter.defaultCenter().postNotificationName("", object: <#AnyObject?#>, userInfo: <#[NSObject : AnyObject]?#>)
     }
 
     
@@ -81,7 +87,7 @@ class AppManager : NSObject {
     每隔3s轮询检测当前心跳,服务器连接状态
     */
     func starttimer(){
-        Poller().start(self, method: "startHeartbeat:",timerInter: 3.0)
+        Poller().start(self, method: "startHeartbeat:",timerInter: 5.0)
     }
     func startHeartbeat(timer: NSTimer){
         var url = server.heartBeatServiceUrl + "/" + GBNetwork.getMacId()
@@ -108,8 +114,14 @@ class AppManager : NSObject {
     :param: timer 定时器轮询检测当前会议时间间隔
     */
     func getCurrent(timer: NSTimer){
-        self.current = builder.LocalCreateMeeting()
-        NSNotificationCenter.defaultCenter().postNotificationName(CurrentDidChangeNotification, object: nil, userInfo: [CurrentDidChangeName: self.current.agendas])
+        
+//        if self.wifiConnect == true && self.netConnect == true{
+            self.current = builder.LocalCreateMeeting()
+            NSNotificationCenter.defaultCenter().postNotificationName(CurrentDidChangeNotification, object: nil, userInfo: [CurrentDidChangeName: self.current.agendas])
+//        }else{
+//            self.current = builder.loadOffLineMeeting()
+//        }
+
     }
     
     

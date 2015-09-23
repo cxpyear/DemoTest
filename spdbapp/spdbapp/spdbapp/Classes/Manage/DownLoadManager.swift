@@ -28,7 +28,7 @@ class DownLoadManager: NSObject {
         
         if filemanager.fileExistsAtPath(localJSONPath){
             let jsonLocal = filemanager.contentsAtPath(localJSONPath)
-            
+          
             if jsonLocal == jsondata {
                 println("json数据信息已经存在")
                 return true
@@ -56,34 +56,19 @@ class DownLoadManager: NSObject {
     
     class func isStart(bool: Bool){
         if bool == true{
-//            downLoadAllFile()
             downloadTest()
             downLoadJSON()
         }
     }
     
     
-//    override init() {
-//        super.init()
-//        NSNotificationCenter.defaultCenter().addObserver(self, selector: "test", name: CurrentDidChangeNotification, object: nil)
-//    }
-//    
-//    
-//    func test(){
-//        NSLog("click to me")
-//    }
-//    
-//    deinit{
-//        NSNotificationCenter.defaultCenter().removeObserver(self)
-//    }
-    
-    
-    
-    
     class func downloadTest(){
         var meeting = appManager.current
         var meetingid = meeting.id
         var sourcesInfo = meeting.sources
+        
+        println("sourcesInfo.count = \(sourcesInfo.count)")
+        
         
         for var i = 0 ; i < sourcesInfo.count ; i++ {
             var fileid = sourcesInfo[i].id
@@ -159,86 +144,6 @@ class DownLoadManager: NSObject {
     }
     
     
-    //-> (currentSeq: Int, totalCount: Int) -> (name: String, downSize: Int, allSize: Int)
-    class func downLoadAllFile(){
-
-        Alamofire.request(.GET, server.meetingServiceUrl).responseJSON(options: NSJSONReadingOptions.MutableContainers) { (_, _, data, err) -> Void in
-            if(err != nil){
-                NSLog("download allsourcefile error ==== %@", err!)
-                return
-            }
-            
-            let json = JSON(data!)
-            var meetingid = json["id"].stringValue
-        
-            if let sourcesInfo = json["source"].array{
-                for var i = 0 ; i < sourcesInfo.count ; i++ {
-                    var source = sourcesInfo[i]
-                    var fileid = source["id"].stringValue
-                    var fileMeetingType = source["meetingtype"].stringValue
-                    var fileMemberRole = source["memberrole"].stringValue
-                    
-//                    println("appManager.appGBUser.type = \(appManager.appGBUser.type)===fileMeetingType = \(fileMeetingType)")
-//                    println("appManager.appGBUser.role = \(appManager.appGBUser.role)===fileMemberRole = \(fileMemberRole)")
-                    
-                    if ((appManager.appGBUser.type == fileMeetingType) && (appManager.appGBUser.role == fileMemberRole)) {
-                        var isfind:Bool = false
-                        var downloadCurrentFile = DownloadFile()
-                        downloadCurrentFile.filebar = 0
-                        downloadCurrentFile.fileid = fileid
-                        
-                        if downloadlist.count==0{
-                            downloadlist.append(downloadCurrentFile)
-                        }
-                        else {
-                            for var i = 0; i < downloadlist.count  ; ++i {
-                                if fileid == downloadlist[i].fileid {
-                                    isfind = true
-                                }
-                            }
-                            if !isfind {
-                                downloadlist.append(downloadCurrentFile)
-                            }
-                        }
-                        
-                        var filepath = server.downloadFileUrl + "gbtouch/meetings/\(meetingid)/\(fileid).pdf"
-                        var getPDFURL = NSURL(string: filepath)
-                        let destination = Alamofire.Request.suggestedDownloadDestination(directory: .DocumentDirectory, domain: .UserDomainMask)
-                        
-                        //判断../Documents是否存在当前filename为名的文件，如果存在，则返回；如不存在，则下载文件
-                        var b = self.isSamePDFFile(fileid)
-                        if b == false{
-                            Alamofire.download(.GET, getPDFURL!, destination).progress {
-                                (_, totalBytesRead, totalBytesExpectedToRead) in
-                                dispatch_async(dispatch_get_main_queue()) {
-                                    
-                                    downloadCurrentFile.fileid = fileid
-                                    var processbar: Float = Float(totalBytesRead)/Float(totalBytesExpectedToRead)
-                                    downloadCurrentFile.filebar = processbar
-                                    
-                                    for var i = 0; i < downloadlist.count  ; ++i {
-                                        if fileid == downloadlist[i].fileid {
-                                            if processbar > downloadlist[i].filebar {
-                                                downloadlist[i].filebar = processbar
-                                            }
-                                        }
-                                    }
-                                    //                                    println("正在下载\(filename)，文件下载进度为\(processbar)")
-                                    if totalBytesRead == totalBytesExpectedToRead {
-                                        println("\(fileid)   下载成功")
-                                    }
-                                }
-                            }
-                        }else if b == true{
-                            println("\(fileid)文件已存在")
-                        }
-
-                    }
-               }
-            }
-        }
-    }
-
     
     class func isFileDownload(id: String) -> Bool{
         var filepath = NSHomeDirectory().stringByAppendingPathComponent("Documents/\(id).pdf")
@@ -248,12 +153,6 @@ class DownLoadManager: NSObject {
         }else{
             return false
         }
-        
-//        if manager.isExecutableFileAtPath(filepath){
-//            return true
-//        }else{
-//            return false
-//        }
     }
     
     
@@ -263,7 +162,7 @@ class DownLoadManager: NSObject {
         Alamofire.request(.GET, server.meetingServiceUrl).responseJSON(options: NSJSONReadingOptions.MutableContainers) { (_, _, data, err) -> Void in
             var jsonFilePath = NSHomeDirectory().stringByAppendingPathComponent("Documents/jsondata.txt")
             
-            //println("\(jsonFilePath)")
+            println("\(data)")
             
             if(err != nil){
                 println("下载当前json出错，error ===== \(err)")

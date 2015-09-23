@@ -19,7 +19,7 @@ class Server: NSObject {
     var loginServiceUrl = String()
     var downloadFileUrl = String()
     
-    let filePath = NSHomeDirectory().stringByAppendingPathComponent("Documents/SettingsConfig.txt")
+//    let filePath = NSHomeDirectory().stringByAppendingPathComponent("Documents/SettingsConfig.txt")
     var url = ""
     
     override init(){
@@ -62,15 +62,6 @@ class Server: NSObject {
         
         return value!
     }
-    
-//    func ipChange(notification: NSNotification){
-//        if let userInfo = notification.userInfo{
-//            var url = userInfo[IPDidChangeName] as! String
-//            self.url = url
-//            println("url ======== \(url)")
-//        }
-//    }
-    
 
     
     

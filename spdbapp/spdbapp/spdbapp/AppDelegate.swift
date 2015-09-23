@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import Fabric
+import Crashlytics
+
 
 var server = Server()
 var builder = Builder()
@@ -21,43 +24,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     var initserver = Server()
-//    var builder = Builder()
-//    
-//    func loadData(){
-//        println("======loaddata")
-//    }
+    var initAppManager = AppManager()
     
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        Fabric.with([Crashlytics.self()])
+
         server = initserver
+        appManager = initAppManager
         
-//        var key = "CFBundleVersion"
-//        //获取当前运行版本号
-//        var currentVersion = NSBundle.mainBundle().objectForInfoDictionaryKey(key) as! NSString
-////        println("currentVersion = \(currentVersion)")
-//        
-//        //获取之前存储在系统中的版本号
-//        var lastVersion: AnyObject? = NSUserDefaults.standardUserDefaults().objectForKey(key)
-        
-//        println("lastVersion = \(lastVersion)")
-        
-        
-        // 判断如果当前版本号＝＝之前存储版本好，直接跳转到登录界面，否则跳转到展示新特性界面
-//        if (currentVersion.isEqual(lastVersion)){
-//            var storyBorad = UIStoryboard(name: "Main", bundle: nil)
-//            var registerVC = storyBorad.instantiateViewControllerWithIdentifier("view") as! RegisViewController
-//            self.window?.rootViewController = registerVC
-//        }else{
-//            var newFeatureVC = NewFeatureViewController()
-//            self.window?.rootViewController = newFeatureVC
-//            NSUserDefaults.standardUserDefaults().setObject(currentVersion, forKey: key)
-//            NSUserDefaults().synchronize()
-//        }
-        
-//        self.window?.makeKeyAndVisible()
         
         return true
     }
+
 
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

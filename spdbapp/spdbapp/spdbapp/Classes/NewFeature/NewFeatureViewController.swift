@@ -29,7 +29,6 @@ class NewFeatureViewController: UIViewController, UIScrollViewDelegate {
             var x = CGFloat(i) * scrollW
             imageView.frame = CGRectMake(x, 0, scrollW, scrollH)
             var imageName = "new_feature_\(i + 1)"
-//            println("imagename = \(imageName)")
             imageView.image = UIImage(named: imageName)
             scrollView.addSubview(imageView)
             
@@ -66,9 +65,13 @@ class NewFeatureViewController: UIViewController, UIScrollViewDelegate {
     */
     func setLastImage(imageView: UIImageView){
         var startBtn = UIButton()
-        startBtn.frame = CGRectMake(self.view.center.x, self.view.frame.height * 0.8, 160 , 65)
+        startBtn.frame.size = CGSizeMake(160 , 65)
+        startBtn.center = CGPointMake(self.view.center.x, self.view.frame.height * 0.8)
         startBtn.layer.cornerRadius = 8
-        startBtn.setTitle("进入系统", forState: UIControlState.Normal)
+
+        startBtn.titleLabel?.font = UIFont(name: UIFontSymbolicTrait, size: 25)
+        
+        startBtn.setTitle("进 入 系 统", forState: UIControlState.Normal)
         startBtn.backgroundColor = SHColor(143, 1, 43)
         startBtn.addTarget(self, action: "startClick", forControlEvents: UIControlEvents.TouchUpInside)
         imageView.userInteractionEnabled = true

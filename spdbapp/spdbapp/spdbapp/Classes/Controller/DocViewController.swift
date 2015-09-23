@@ -45,6 +45,7 @@ class DocViewController: UIViewController,UIWebViewDelegate, UIGestureRecognizer
         loadLocalPDFFile()
         totalPage = initfile()
         
+        
         topBarView = TopbarView.getTopBarView(self)
         topBarView.backgroundColor = UIColor.clearColor()
         self.view.addSubview(topBarView)
@@ -63,8 +64,6 @@ class DocViewController: UIViewController,UIWebViewDelegate, UIGestureRecognizer
         var tapGesture = UITapGestureRecognizer(target: self, action: "hideOrShowBottomBar:")
         tapGesture.cancelsTouchesInView = false
         self.view.addGestureRecognizer(tapGesture)
-        
-//        docPath = NSHomeDirectory().stringByAppendingPathComponent("Documents/\(fileIDInfo!).pdf")
     }
     
     func hideOrShowBottomBar(gesture: UITapGestureRecognizer){
@@ -103,28 +102,18 @@ class DocViewController: UIViewController,UIWebViewDelegate, UIGestureRecognizer
     :param: num 指定的pdf跳转页码位置
     */
     func skipToPage(num: Int){
-//        var strPath = NSHomeDirectory().stringByAppendingPathComponent("Documents/\(fileIDInfo!).pdf")
-//        var totalPages = self.initfile()
-        
         var totalPDFheight = docView.scrollView.contentSize.height
-        
-        var horizontalPaddingBetweenPages = 10 * (totalPage + 1)
-        var temp = totalPDFheight - CGFloat(horizontalPaddingBetweenPages)
-        var pageHeight = CGFloat(temp / CGFloat(totalPage))
-        
+        var pageHeight = CGFloat(totalPDFheight / CGFloat(totalPage))
+    
         var specificPageNo = num
         if specificPageNo <= totalPage{
             
-            var p = specificPageNo - 1
-            var value1 = CGFloat(10 * p)
-            var value2 = CGFloat( pageHeight * CGFloat(p) )
-            var sb: CGFloat = CGFloat(value1 + value2)
-            var offsetPage = CGPointMake(0, sb)
+            var value2 = CGFloat(pageHeight * CGFloat(specificPageNo - 1))
+            var offsetPage = CGPointMake(0, value2)
             docView.scrollView.setContentOffset(offsetPage, animated: true)
         }
         println("currentpage = \(currentPage)")
     }
-    
     
     /**
     跳转到pdf文档第一页
@@ -200,16 +189,13 @@ class DocViewController: UIViewController,UIWebViewDelegate, UIGestureRecognizer
             UIAlertView(title: "提示", message: "当前服务器中不存在该文件", delegate: self, cancelButtonTitle: "确定").show()
             return 0
         }
-        
-//        var document: CGPDFDocumentRef = CGPDFDocumentCreateWithURL(url)
-//        var totalPages = CGPDFDocumentGetNumberOfPages(document)
-//        return totalPages
     }
     
     func scrollViewDidScroll(scrollView: UIScrollView){
-        println("offset.y = \((scrollView.contentOffset.y ))")
+        var pdfHeight = scrollView.contentSize.height
+        var onePageHeight = pdfHeight / CGFloat(totalPage)
         
-        var page = (scrollView.contentOffset.y ) / (self.view.frame.height)
+        var page = (scrollView.contentOffset.y) / onePageHeight
         var p = Int(page + 0.5)
         self.txtShowCurrentPape.text = "\(p + 1)"
     }
@@ -245,7 +231,6 @@ class DocViewController: UIViewController,UIWebViewDelegate, UIGestureRecognizer
         var urlString = NSURL(fileURLWithPath: "\(filePath)")
         var request = NSURLRequest(URL: urlString!)
         self.docView.loadRequest(request)
-//        println("path = \(filePath)")
         skipToPage(1)
     }
     

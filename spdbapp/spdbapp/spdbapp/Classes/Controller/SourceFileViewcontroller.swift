@@ -61,7 +61,7 @@ class SourceFileViewcontroller: UIViewController, UITableViewDelegate, UITableVi
             self.loading.stopAnimating()
         }
         
-        if bNeedRefresh == true{
+        if bNeedRefresh == true && appManager.netConnect == true && appManager.wifiConnect == true{
             NSNotificationCenter.defaultCenter().addObserver(self, selector: "getCurrentChange:", name: CurrentDidChangeNotification, object: nil)
         }else{
             self.gbSourceInfo = appManager.current.agendas[agendaIndex].source

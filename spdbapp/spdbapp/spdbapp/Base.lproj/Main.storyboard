@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="RmB-cf-a8W">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
@@ -151,7 +150,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DyT-0m-p1d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1495" y="200"/>
+            <point key="canvasLocation" x="1449" y="197"/>
         </scene>
         <!--Source File Viewcontroller-->
         <scene sceneID="CqX-Ed-viz">
@@ -382,22 +381,24 @@
                                             <constraint firstAttribute="width" constant="768" id="wDQ-Sg-y89"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hh7-Zx-i17">
-                                        <rect key="frame" x="638" y="20" width="100" height="40"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fcg-Kk-JjR">
+                                        <rect key="frame" x="548" y="20" width="80" height="50"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="100" id="gQT-fC-2sU"/>
-                                            <constraint firstAttribute="height" constant="40" id="sap-yd-hrc"/>
+                                            <constraint firstAttribute="width" constant="80" id="aNt-KE-b6u"/>
+                                            <constraint firstAttribute="height" constant="50" id="yff-RA-EDD"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <state key="normal" title="帮  助">
+                                        <state key="normal" image="sharew">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fcg-Kk-JjR">
-                                        <rect key="frame" x="638" y="75" width="100" height="40"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <state key="normal" title="分   享">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hh7-Zx-i17">
+                                        <rect key="frame" x="658" y="20" width="80" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="mFf-Uj-1F7"/>
+                                            <constraint firstAttribute="width" constant="80" id="tr4-88-2Bb"/>
+                                        </constraints>
+                                        <state key="normal" image="helpw">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -408,17 +409,19 @@
                                     <constraint firstAttribute="centerY" secondItem="J3i-cO-yN8" secondAttribute="centerY" id="1nU-EW-mKG"/>
                                     <constraint firstItem="4vC-B9-87U" firstAttribute="leading" secondItem="u49-0s-A6h" secondAttribute="leading" id="AGt-bX-fB7"/>
                                     <constraint firstAttribute="centerX" secondItem="J3i-cO-yN8" secondAttribute="centerX" id="DNY-hx-HHj"/>
-                                    <constraint firstItem="hh7-Zx-i17" firstAttribute="top" secondItem="u49-0s-A6h" secondAttribute="top" constant="20" id="EbH-K0-SXW"/>
                                     <constraint firstAttribute="centerX" secondItem="1kA-Yi-hvc" secondAttribute="centerX" id="Obv-gL-iUh"/>
                                     <constraint firstItem="1kA-Yi-hvc" firstAttribute="top" secondItem="4vC-B9-87U" secondAttribute="bottom" id="RgP-Gf-qRo"/>
                                     <constraint firstAttribute="centerY" secondItem="1kA-Yi-hvc" secondAttribute="centerY" id="b0i-Sx-Imr"/>
+                                    <constraint firstItem="hh7-Zx-i17" firstAttribute="top" secondItem="u49-0s-A6h" secondAttribute="top" constant="20" id="cKn-J1-crm"/>
                                     <constraint firstAttribute="centerX" secondItem="bbM-8x-E5l" secondAttribute="centerX" id="cgp-BJ-Z4K"/>
                                     <constraint firstItem="bbM-8x-E5l" firstAttribute="leading" secondItem="u49-0s-A6h" secondAttribute="leading" id="hQH-T0-zqb"/>
                                     <constraint firstAttribute="trailing" secondItem="4vC-B9-87U" secondAttribute="trailing" id="jMW-3b-j8O"/>
-                                    <constraint firstAttribute="trailing" secondItem="hh7-Zx-i17" secondAttribute="trailing" constant="30" id="lcu-48-sn1"/>
+                                    <constraint firstItem="fcg-Kk-JjR" firstAttribute="top" secondItem="u49-0s-A6h" secondAttribute="top" constant="20" id="jeF-Uf-WGg"/>
+                                    <constraint firstAttribute="trailing" secondItem="hh7-Zx-i17" secondAttribute="trailing" constant="30" id="kso-Cg-8oX"/>
                                     <constraint firstItem="1kA-Yi-hvc" firstAttribute="top" secondItem="bbM-8x-E5l" secondAttribute="bottom" id="oCe-Fi-ffO"/>
                                     <constraint firstAttribute="height" constant="874" id="rFA-tF-QJ9"/>
                                     <constraint firstAttribute="trailing" secondItem="bbM-8x-E5l" secondAttribute="trailing" id="uBt-Pq-u8n"/>
+                                    <constraint firstItem="hh7-Zx-i17" firstAttribute="leading" secondItem="fcg-Kk-JjR" secondAttribute="trailing" constant="30" id="yXK-Rz-Wl3"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pYw-l3-P72" userLabel="顶部显示logo的view">
@@ -491,7 +494,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2QR-Lp-JfF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="634" y="124"/>
+            <point key="canvasLocation" x="616" y="197"/>
         </scene>
         <!--Doc View Controller-->
         <scene sceneID="xyK-Bk-83V">
@@ -683,5 +686,7 @@
         <image name="Unlock-50" width="50" height="50"/>
         <image name="app_logo" width="2133" height="600"/>
         <image name="app_xuanchuanci" width="148" height="65"/>
+        <image name="helpw" width="50" height="50"/>
+        <image name="sharew" width="50" height="50"/>
     </resources>
 </document>

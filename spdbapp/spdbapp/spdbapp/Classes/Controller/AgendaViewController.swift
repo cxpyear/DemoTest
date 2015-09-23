@@ -66,7 +66,9 @@ class AgendaViewController: UIViewController, UITableViewDelegate, UITableViewDa
             self.loading.stopAnimating()
         }
         
-        if bNeedRefresh == true{
+//        && appManager.netConnect == true && appManager.wifiConnect == true
+        
+        if bNeedRefresh == true {
             NSNotificationCenter.defaultCenter().addObserver(self, selector: "getCurrentChange:", name: CurrentDidChangeNotification, object: nil)
         }else{
             appManager.current = builder.loadOffLineMeeting()
@@ -78,6 +80,11 @@ class AgendaViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func getCurrentChange(notification: NSNotification){
+        
+        println("wifi = \(appDelegate.initAppManager.wifiConnect)")
+        println("net = \(appDelegate.initAppManager.netConnect)")
+
+        
         self.lblMeetingName.text = appManager.current.id.isEmpty ? "暂无会议" : appManager.current.name
         self.gbAgendInfo = appManager.current.agendas
         self.tvAgenda.reloadData()

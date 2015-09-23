@@ -14,8 +14,7 @@ import Foundation
 var CurrentDidChangeNotification = "CurrentDidChangeNotification"
 var CurrentDidChangeName = "CurrentDidChangeName"
 
-//var CurrentDidChangeNotification = "CurrentDidChangeNotification"
-var IPDidChangeName = "IPDidChangeName"
+
 
 
 //返回颜色

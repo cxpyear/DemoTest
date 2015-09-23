@@ -24,7 +24,7 @@ class Builder: NSObject {
 
         var jsonLocal = filemanager.contentsAtPath(localJSONPath)
         var result: AnyObject = NSJSONSerialization.JSONObjectWithData(jsonLocal!, options: NSJSONReadingOptions.AllowFragments, error: nil)!
-        println("localcreatemeeting json ======local====== \(result)")
+//        println("localcreatemeeting json ======local====== \(result)")
         
         var json = JSON(result)
         self.getMeetingInfo(json)
@@ -43,14 +43,13 @@ class Builder: NSObject {
         var filemanager = NSFileManager.defaultManager()
         
         println("localcreatemeeting appmanaer = \(appManager.netConnect)")
-        if appManager.netConnect == true{
+        if appManager.netConnect == true && appManager.wifiConnect == true {
             var url = NSURL(string: server.meetingServiceUrl)
             println("localcreatemeeting url = \(url)")
             var data = NSData(contentsOfURL: url!)
             if(data != nil){
                 var result: AnyObject = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments, error: nil)!
-                
-//                println("localcreatemeeting json ======net====== \(result)")
+                println("localcreatemeeting json ======net====== \(result)")
                 var json = JSON(result)
                 self.getMeetingInfo(json)
             }            
@@ -69,9 +68,6 @@ class Builder: NSObject {
     
     
     func getMeetingInfo(json: JSON) -> GBMeeting{
-        
-       
-        
         current.id = json["id"].stringValue
         current.name = json["name"].stringValue
         
@@ -106,15 +102,17 @@ class Builder: NSObject {
                     role = userinfo?.objectForKey("role") as? String
                 }
                 
-                println("source.type = \(source.meetingtype)===== source.role = \(source.memberrole)")
-                println("type = \(type)====role = \(role)")
+//                println("source.type = \(source.meetingtype)===== source.role = \(source.memberrole)")
+//                println("type = \(type)====role = \(role)")
                 
                 //当满足人员类型等于会议类型  &&  人员角色＝＝文件分配权限／全员时，将该文件加载入对应的议程中
                 if ((type == source.meetingtype) && ((role == source.memberrole)  || (source.memberrole == "全员"))){
                     current.sources.append(source)
                 }
             }
+//            println("source.count = \(current.sources.count)")
         }
+        
         
         if let agendas = json["agenda"].array{
             var count = agendas.count
@@ -145,7 +143,7 @@ class Builder: NSObject {
                 }
                 
                 current.agendas.append(agenda)
-                println("current======\(current.agendas[i].source.count)")
+                println("agenda\(i).source.count======\(current.agendas[i].source.count)")
             }
         }
         return current

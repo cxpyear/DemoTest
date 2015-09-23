@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		6580FE171AFB62DE00C7ACE7 /* spdbappTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6580FE161AFB62DE00C7ACE7 /* spdbappTests.swift */; };
+		C44452D31BAAC174002DB548 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C44452D11BAAC174002DB548 /* Fabric.framework */; };
+		C44452D41BAAC174002DB548 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C44452D21BAAC174002DB548 /* Crashlytics.framework */; };
 		C4614E751B830496009ECF9E /* RemarkColorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4614E741B830496009ECF9E /* RemarkColorView.xib */; };
 		C4614E771B8304A4009ECF9E /* RemarkColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4614E761B8304A4009ECF9E /* RemarkColorView.swift */; };
 		C49F8A201B7DE35F00F26F1C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49F89F61B7DE35F00F26F1C /* AppDelegate.swift */; };
@@ -151,6 +153,8 @@
 		6580FE101AFB62DE00C7ACE7 /* spdbappTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = spdbappTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6580FE151AFB62DE00C7ACE7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6580FE161AFB62DE00C7ACE7 /* spdbappTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = spdbappTests.swift; sourceTree = "<group>"; };
+		C44452D11BAAC174002DB548 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		C44452D21BAAC174002DB548 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		C4614E741B830496009ECF9E /* RemarkColorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RemarkColorView.xib; sourceTree = "<group>"; };
 		C4614E761B8304A4009ECF9E /* RemarkColorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemarkColorView.swift; sourceTree = "<group>"; };
 		C49F89F61B7DE35F00F26F1C /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -199,6 +203,8 @@
 			files = (
 				C4DC08441B8B375700705054 /* Alamofire.framework in Frameworks */,
 				C4A75EA61B8C0AFB005B09C5 /* SnapKit.framework in Frameworks */,
+				C44452D41BAAC174002DB548 /* Crashlytics.framework in Frameworks */,
+				C44452D31BAAC174002DB548 /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,6 +221,8 @@
 		6580FDF21AFB62DE00C7ACE7 = {
 			isa = PBXGroup;
 			children = (
+				C44452D11BAAC174002DB548 /* Fabric.framework */,
+				C44452D21BAAC174002DB548 /* Crashlytics.framework */,
 				C4A75E941B8C0AF2005B09C5 /* SnapKit.xcodeproj */,
 				C4DC08351B8B375200705054 /* Alamofire.xcodeproj */,
 				C49F89F51B7DE35F00F26F1C /* spdbapp */,
@@ -422,6 +430,7 @@
 				6580FDF81AFB62DE00C7ACE7 /* Frameworks */,
 				6580FDF91AFB62DE00C7ACE7 /* Resources */,
 				65473C351B0301EC0019E121 /* Embed Frameworks */,
+				C44452D01BAAC08D002DB548 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -586,6 +595,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C44452D01BAAC08D002DB548 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run ce9deb451ce20de4c762ee02ccc7b947ecc32dee 1a973f98e6d69c6829528c169e04d597bda72cdd1b6fa2256a9cbf87f5bcb547";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6580FDF71AFB62DE00C7ACE7 /* Sources */ = {
@@ -764,11 +789,16 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/spdbapp/resources",
+				);
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = spdbapp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -785,11 +815,16 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/spdbapp/resources",
+				);
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = spdbapp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
